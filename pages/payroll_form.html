@@ -27,6 +27,7 @@
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name..." required>
+                <error-output class="text-error" for="text"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="profile">Profile image</label>
@@ -36,16 +37,16 @@
                         <img class="profile" id="image1" src="../assets/logo1.PNG" alt="profile-image">
                     </label>
                     <label>
-                        <input type="radio" id="profile1" name="profile" value="../assets/newlogo.PNG" required>
-                        <img class="profile" id="image1" src="../assets/logo2.PNG" alt="profile-image">
+                        <input type="radio" id="profile2" name="profile" value="../assets/newlogo.PNG" required>
+                        <img class="profile" id="image2" src="../assets/logo2.PNG" alt="profile-image">
                     </label>
                     <label>
-                        <input type="radio" id="profile1" name="profile" value="../assets/newlogo.PNG" required>
-                        <img class="profile" id="image1" src="../assets/logo3.PNG" alt="profile-image">
+                        <input type="radio" id="profile3" name="profile" value="../assets/newlogo.PNG" required>
+                        <img class="profile" id="image3" src="../assets/logo3.PNG" alt="profile-image">
                     </label>
                     <label>
-                        <input type="radio" id="profile1" name="profile" value="../assets/newlogo.PNG" required>
-                        <img class="profile" id="image1" src="../assets/logo4.PNG" alt="profile-image">
+                        <input type="radio" id="profile4" name="profile" value="../assets/newlogo.PNG" required>
+                        <img class="profile" id="image4" src="../assets/logo4.PNG" alt="profile-image">
                     </label>
                 </div>
             </div>
@@ -61,15 +62,15 @@
             <div class="row-content">
                 <label class="label text" for="department">Department</label>
                 <div>
-                    <input class="checkbox" type="checkbox" name="hr" id="hr" value="HR">
+                    <input class="checkbox" type="checkbox" name="department" id="hr" value="HR">
                     <label class="text" for="hr">HR</label>
-                    <input class="checkbox" type="checkbox" name="sales" id="sales" value="Sales">
+                    <input class="checkbox" type="checkbox" name="department" id="sales" value="Sales">
                     <label class="text" for="hr">Sales</label>
-                    <input class="checkbox" type="checkbox" name="finance" id="fincance" value="Finance">
+                    <input class="checkbox" type="checkbox" name="department" id="finance" value="Finance">
                     <label class="text" for="hr">Finance</label>
-                    <input class="checkbox" type="checkbox" name="engineer" id="engineer" value="Engineer">
+                    <input class="checkbox" type="checkbox" name="department" id="engineer" value="Engineer">
                     <label class="text" for="hr">Engineer</label>
-                    <input class="checkbox" type="checkbox" name="other" id="ohter" value="Other">
+                    <input class="checkbox" type="checkbox" name="department" id="ohter" value="Other">
                     <label class="text" for="other">Other</label>
                 </div>
             </div>
@@ -82,7 +83,7 @@
             <div class="row-content">
                 <label class="label text" for="startDate">Start Date</label>
                 <div>
-                    <select name="Day" id="day">
+                    <select name="day" id="day">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -115,7 +116,7 @@
                         <option value="30">30</option>
                         <option value="31">31</option>
                     </select>
-                    <select name="Month" id="month">
+                    <select name="month" id="month">
                         <option value="Jan">January</option>
                         <option value="Feb">February</option>
                         <option value="Mar">March</option>
@@ -129,7 +130,7 @@
                         <option value="Nov">Novemmber</option>
                         <option value="Dec">December</option>
                     </select>
-                    <select name="Year" id="year">
+                    <select name="year" id="year">
                         <option value="2021">2021</option>
                         <option value="2020">2020</option>
                         <option value="2019">2019</option>

@@ -1,24 +1,55 @@
-const salary = document.querySelector('#salary');
-const output = document.querySelector('.salary-output');
-output.textContent = salary.value;
-salary.addEventListener('input',function(){
+window.addEventListener('DOMContentLoaded',(event) => {
+    const name = document.querySelector('#name');
+    const textError = document.querySelector('.text-error');
+    name.addEventListener('input',function(){
+        if (name.value.lenght == 0) {
+            textError.textContent = "";
+            return;
+        }
+        try {
+            (new EmployeePayRollData()).name = name.value;
+            textError.textContent = "";
+        } catch (e) {
+            textError.textContent = e;
+        }
+    });
+
+    const salary = document.querySelector('#salary');
+    const output = document.querySelector('.salary-output');
     output.textContent = salary.value;
+    salary.addEventListener('input',function(){
+        output.textContent = salary.value;
+    });
 });
 
 const save = () => {
-    let employee1 = new EmployeePayRollData();
-    employee1.name = document.getSelectedValues('[name=name]');
-    employee1.profilePic = document.getSelectedValues('[name=profile]');
-    employee1.gender = document.getSelectedValues('[name=gender]');
-    // employee1.department = document.querySelector('#department');
-    employee1.salary = document.getSelectedValues('[name=salary]');
-    // employee1.startDate = document.getSelectedValues('[name=salary]');
-    employee1.note = document.getSelectedValues('[name=Notes]');
-
-    alert(employee1.toString());
+    try {
+        let employeePayRollData = createEmployeePayroll();
+    } catch (e) {
+        return;
+    }
 }
 
-const getSelectedValues = (propertyValue) =>{
+const createEmployeePayroll = () => {
+    let employeePayRollData = new EmployeePayRollData();
+    try {
+        employeePayRollData.name = getInputValueById('#name');
+    } catch (e) {
+        setTextValue('.text-error',e);
+        throw e;
+    }
+    employeePayRollData.profilePic = getSelectedValues('[name=profile]').pop();
+    employeePayRollData.gender = getSelectedValues('[name=gender]').pop();
+    employeePayRollData.department = getSelectedValues('[name=department]');
+    employeePayRollData.salary = getInputValueById('#salary');
+    employeePayRollData.note = getInputValueById('#note');
+    let date = getInputValueById('#day') + " " + getInputValueById('#month') + " " + getInputValueById('#year');
+    employeePayRollData.date = Date.parse(date);
+    alert(employeePayRollData.toString());
+    return employeePayRollData;
+}
+
+const getSelectedValues = (propertyValue) => {
     let allItems = document.querySelectorAll(propertyValue);
     let selItems = [];
     allItems.forEach(item => {
@@ -27,4 +58,7 @@ const getSelectedValues = (propertyValue) =>{
     return selItems;
 }
 
-
+const getInputValueById = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}
