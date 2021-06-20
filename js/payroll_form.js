@@ -45,7 +45,7 @@ const createEmployeePayroll = () => {
     employeePayRollData.salary = getInputValueById('#salary');
     employeePayRollData.note = getInputValueById('#note');
     let date = getInputValueById('#day') + " " + getInputValueById('#month') + " " + getInputValueById('#year');
-    employeePayRollData.date = Date.parse(date);
+    employeePayRollData.startDate = new Date(date);
     alert(employeePayRollData.toString());
     return employeePayRollData;
 }
@@ -65,7 +65,7 @@ const getInputValueById = (id) => {
 }
 
 function createAndUpdateStorage(employeePayRollData) {
-    let employeePayRollList = JSON.parse(localStorage.getItem(EmployeePayRollList));
+    let employeePayRollList = JSON.parse(localStorage.getItem("EmployeePayRollList"));
 
     if (employeePayRollList != undefined) {
         employeePayRollList.push(employeePayRollData);
@@ -82,7 +82,6 @@ const resetForm = () => {
     unsetSelectedValues('[name=gender]');
     unsetSelectedValues('[name=department]');
     setValue('#salary','');
-    setTextValue('#salary',30000);
     setValue('#note','');
     setValue('#day',1);
     setValue('#month','January');
